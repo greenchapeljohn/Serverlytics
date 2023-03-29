@@ -10,6 +10,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     'cdk-custom-domain-lib',
     'cdk-api-gateway-helper-lib',
     'aws-lambda',
+    '@aws-cdk/aws-lambda-go-alpha',
     'aws-sdk',
     'dotenv',
   ], /* Runtime dependencies of this module. */

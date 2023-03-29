@@ -1,5 +1,6 @@
 import { App } from 'aws-cdk-lib';
 import * as dotenv from 'dotenv';
+import { DataCollectorCdkStack } from './stacks/DataCollector/data-collector-stack';
 import { ExampleFeaturesCdkStack } from './stacks/Example/example-feature-stack';
 import { CognitoStack } from './stacks/UserManagement/cognito-stack';
 import { TokenStack } from './stacks/UserManagement/token-stack';
@@ -49,5 +50,11 @@ const exampleStack = new ExampleFeaturesCdkStack(app, `${process.env.APP_NAME_SH
 });
 exampleStack.addDependency(cognitoStack);
 // ---- END EXAMPLE STACKS
+
+
+// ---- DATA COLLECTOR STACKS
+new DataCollectorCdkStack(app, `${process.env.APP_NAME_SHORT}-DataCollectorCdkStack`, {
+  env: stackEnvironments,
+});
 
 app.synth();
